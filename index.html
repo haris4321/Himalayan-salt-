@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himalayan Pink Salt Co. | Pure Mineral Artisanal Treasures</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff5f4',
+                            100: '#ffe8e5',
+                            200: '#ffd5cf',
+                            300: '#ffb4a9',
+                            400: '#f88574',
+                            500: '#e95a45',
+                            600: '#d53d28',
+                            700: '#b32f1d',
+                            800: '#942b1d',
+                            900: '#7a2a1e',
+                        },
+                        charcoal: '#1a1818',
+                        warmbg: '#faf6f0',
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-warmbg text-charcoal font-sans antialiased flex flex-col min-h-screen custom-scrollbar">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-charcoal text-amber-100 text-xs py-2 px-4 text-center font-medium tracking-wide flex justify-between items-center px-8">
+        <span class="hidden md:inline">🌱 100% Hand-Harvested Organic Himalayan Salt Crystals</span>
+        <div class="mx-auto md:mx-0 flex gap-4 items-center">
+            <span>✨ Global Wholesale & B2B Shipping Available</span>
+            <select id="currency-select" onchange="changeCurrency(this.value)" class="bg-transparent border border-amber-200/30 text-amber-100 rounded px-2 py-0.5 text-xs focus:outline-none">
+                <option value="USD" class="text-black">USD ($)</option>
+                <option value="EUR" class="text-black">EUR (€)</option>
+                <option value="GBP" class="text-black">GBP (£)</option>
+                <option value="PKR" class="text-black">PKR (Rs)</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-brand-100 shadow-xs transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <div class="flex items-center gap-3 cursor-pointer group" onclick="navigateTo('home')">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-500 to-brand-300 flex items-center justify-center text-white text-2xl shadow-md group-hover:scale-105 transition-transform">
+                    💎
+                </div>
+                <div>
+                    <span class="font-serif text-2xl font-bold tracking-tight text-charcoal leading-none">Himalayan</span>
+                    <span class="text-[10px] tracking-widest text-brand-600 uppercase font-bold block mt-0.5">Pink Salt Reserve</span>
+                </div>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8 font-semibold text-gray-700 text-sm">
+                <button onclick="navigateTo('home')" class="nav-link hover:text-brand-600 transition-colors">Home</button>
+                <button onclick="navigateTo('products')" class="nav-link hover:text-brand-600 transition-colors">Catalog</button>
+                <button onclick="navigateTo('minerals')" class="nav-link hover:text-brand-600 transition-colors">Mineral Breakdown</button>
+                <button onclick="navigateTo('about')" class="nav-link hover:text-brand-600 transition-colors">Mining Heritage</button>
+                <button onclick="navigateTo('wholesale')" class="nav-link hover:text-brand-600 transition-colors">B2B & Wholesale</button>
+                <button onclick="navigateTo('contact')" class="nav-link hover:text-brand-600 transition-colors">Contact</button>
+            </nav>
+
+            <!-- Header Actions -->
+            <div class="flex items-center gap-4">
+                <button onclick="toggleSearchModal()" class="p-2.5 text-gray-600 hover:text-brand-600 rounded-full hover:bg-brand-50 transition-colors">
+                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                </button>
+                <button onclick="toggleCart()" class="relative p-2.5 text-gray-700 hover:text-brand-600 rounded-full hover:bg-brand-50 transition-colors">
+                    <i class="fa-solid fa-bag-shopping text-xl"></i>
+                    <span id="cart-count" class="absolute top-1 right-1 bg-brand-500 text-white text-[11px] w-5 h-5 rounded-full flex items-center justify-center font-bold shadow-sm">0</span>
+                </button>
+                <button onclick="navigateTo('wholesale')" class="hidden sm:inline-flex bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs px-5 py-3 rounded-xl shadow-md shadow-brand-200 transition-all">
+                    Bulk Quote
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dynamic Router View -->
+    <main class="flex-grow">
+        
+        <!-- PAGE 1: HOME PAGE -->
+        <section id="home" class="page-section">
+            <div class="hero-bg py-20 lg:py-28 px-4 sm:px-6 lg:px-8 border-b border-brand-100">
+                <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100/70 border border-brand-200 text-brand-700 text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-certificate"></i> Certified 100% Raw Mineral Salt
+                        </div>
+                        <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold text-charcoal leading-[1.1]">
+                            Authentic Salt <br/>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-brand-500 to-amber-600">From Ancient Seas</span>
+                        </h1>
+                        <p class="text-gray-600 text-lg leading-relaxed max-w-2xl font-normal">
+                            Straight from the ancient Khewra mines at the foot of the Himalayas. Formed over 250 million years ago, rich with 84 essential minerals, unrefined, untouched, and chemical-free.
+                        </p>
+                        <div class="pt-4 flex flex-wrap gap-4 items-center">
+                            <button onclick="navigateTo('products')" class="bg-brand-500 hover:bg-brand-600 text-white font-bold px-8 py-4 rounded-xl text-base shadow-xl shadow-brand-200 transition-all hover:scale-105">
+                                Explore Full Collection
+                            </button>
+                            <button onclick="navigateTo('minerals')" class="bg-white hover:bg-brand-50 text-gray-800 font-bold border border-brand-200 px-8 py-4 rounded-xl text-base transition-all">
+                                Interactive Calculator
+                            </button>
+                        </div>
+                        <div class="pt-8 border-t border-brand-200/60 grid grid-cols-3 gap-6">
+                            <div>
+                                <span class="block text-2xl font-extrabold text-brand-700">84+</span>
+                                <span class="text-xs text-gray-500 font-semibold">Active Trace Minerals</span>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-extrabold text-brand-700">250M+</span>
+                                <span class="text-xs text-gray-500 font-semibold">Years of Purity</span>
+                            </div>
+                            <div>
+                                <span class="block text-2xl font-extrabold text-brand-700">45+</span>
+                                <span class="text-xs text-gray-500 font-semibold">Export Countries</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative mx-auto max-w-md">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-brand-400 to-amber-300 rounded-3xl transform rotate-3 blur-sm opacity-50"></div>
+                            <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&q=80&w=800" alt="Himalayan Salt" class="relative rounded-3xl shadow-2xl w-full h-[500px] object-cover border-4 border-white">
+                            <div class="absolute -bottom-6 -left-6 glass-card p-4 rounded-2xl shadow-xl flex items-center gap-4 max-w-xs border border-white">
+                                <div class="w-12 h-12 rounded-xl bg-rose-500 text-white flex items-center justify-center text-xl font-bold"><i class="fa-solid fa-heart-pulse"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-gray-900">Health & Hydration</h4>
+                                    <p class="text-xs text-gray-500">Natural electrolyte balancer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 2: PRODUCTS CATALOG -->
+        <section id="products" class="page-section hidden py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-brand-200">
+                <div>
+                    <span class="text-brand-600 font-bold text-xs uppercase tracking-widest">Complete Collection</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-charcoal mt-1">Our Organic Salt Products</h2>
+                </div>
+                <div class="mt-4 md:mt-0 flex items-center gap-3">
+                    <input type="text" id="catalog-search" oninput="handleSearch(this.value)" placeholder="Search products..." class="px-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-brand-500">
+                </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-10">
+                <button onclick="filterProducts('all')" class="filter-btn active-filter px-5 py-2.5 rounded-xl font-semibold text-sm border transition-all">All Items</button>
+                <button onclick="filterProducts('cooking')" class="filter-btn px-5 py-2.5 rounded-xl font-semibold text-sm border border-brand-200 text-gray-600 transition-all">Culinary Salt</button>
+                <button onclick="filterProducts('lamps')" class="filter-btn px-5 py-2.5 rounded-xl font-semibold text-sm border border-brand-200 text-gray-600 transition-all">Salt Lamps & Decor</button>
+                <button onclick="filterProducts('spa')" class="filter-btn px-5 py-2.5 rounded-xl font-semibold text-sm border border-brand-200 text-gray-600 transition-all">Spa & Wellness</button>
+                <button onclick="filterProducts('industrial')" class="filter-btn px-5 py-2.5 rounded-xl font-semibold text-sm border border-brand-200 text-gray-600 transition-all">Bulk Blocks & Licks</button>
+            </div>
+
+            <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+        </section>
+
+        <!-- PAGE 3: MINERAL BREAKDOWN & CALCULATOR -->
+        <section id="minerals" class="page-section hidden py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest">Scientific Hydration & Health</span>
+                <h2 class="font-serif text-4xl font-bold text-charcoal mt-2">84 Essential Mineral Composition</h2>
+                <p class="text-gray-600 mt-4">Himalayan salt derives its iconic pink tone from iron oxide alongside essential electrolytes including Potassium, Magnesium, and Calcium.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-3xl shadow-xl border border-brand-100 mb-16 max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-3">Daily Sole Water Calculator</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6">Calculate your optimal daily Pink Salt Sole solution (concentrated saline water drink) for natural hydration and electrolyte balancing.</p>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Body Weight (kg)</label>
+                                <input type="number" id="user-weight" value="70" oninput="calculateSole()" class="w-full px-4 py-2.5 border rounded-xl text-sm focus:outline-none focus:border-brand-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Activity Level</label>
+                                <select id="user-activity" onchange="calculateSole()" class="w-full px-4 py-2.5 border rounded-xl text-sm focus:outline-none focus:border-brand-500">
+                                    <option value="1">Light Activity (Office / Moderate Walk)</option>
+                                    <option value="1.25">Moderate (1hr Exercise Daily)</option>
+                                    <option value="1.5">High Performance Athlete</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-50 p-6 rounded-2xl border border-brand-200 text-center space-y-4">
+                        <span class="text-xs font-bold uppercase text-brand-700 tracking-wider">Recommended Daily Hydration</span>
+                        <div class="text-4xl font-extrabold text-brand-600" id="sole-result">1.5 Teaspoons</div>
+                        <p class="text-xs text-gray-600">Dissolved in 500ml water every morning on an empty stomach.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 4: MINING HERITAGE -->
+        <section id="about" class="page-section hidden py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-brand-600 font-bold text-xs uppercase tracking-widest">Khewra Salt Range Heritage</span>
+                    <h2 class="font-serif text-4xl font-bold text-charcoal mt-2 leading-tight">Centuries of Artisan Mining & Sustainable Harvesting</h2>
+                    <p class="text-gray-600 mt-4 leading-relaxed">
+                        Located at the foothills of the Salt Range in Punjab, Pakistan, the Khewra Salt Mine is one of the oldest and largest salt reserves on Earth.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 5: B2B WHOLESALE -->
+        <section id="wholesale" class="page-section hidden py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="bg-charcoal text-white rounded-3xl p-8 sm:p-14">
+                <h2 class="font-serif text-3xl font-bold">Wholesale & Bulk Export Orders</h2>
+                <p class="text-gray-300 mt-4">Full Container Load (FCL) export for industrial and retail suppliers worldwide.</p>
+            </div>
+        </section>
+
+        <!-- PAGE 6: CONTACT -->
+        <section id="contact" class="page-section hidden py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+            <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-xl border border-brand-100">
+                <h2 class="font-serif text-3xl font-bold text-charcoal text-center mb-6">Contact Export Desk</h2>
+                <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                    <input type="text" placeholder="Your Name" required class="w-full px-4 py-3 rounded-xl border border-gray-200">
+                    <input type="email" placeholder="Your Email" required class="w-full px-4 py-3 rounded-xl border border-gray-200">
+                    <textarea placeholder="Your Inquiry" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-200"></textarea>
+                    <button type="submit" class="w-full bg-brand-500 text-white font-bold py-3.5 rounded-xl">Send Inquiry</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-gray-400 py-12 border-t border-gray-800 mt-20 text-center text-xs">
+        &copy; 2026 Himalayan Pink Salt Reserve. All rights reserved.
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs hidden flex justify-end">
+        <div class="bg-white w-full max-w-md h-full p-6 flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-center mb-6 border-b pb-4">
+                    <h3 class="font-serif text-xl font-bold">Basket</h3>
+                    <button onclick="toggleCart()" class="text-2xl">&times;</button>
+                </div>
+                <div id="cart-items" class="space-y-4"></div>
+            </div>
+            <div class="border-t pt-4">
+                <div class="flex justify-between font-bold text-lg mb-4">
+                    <span>Total:</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+                <button onclick="alert('Checkout Gateway!')" class="w-full bg-brand-500 text-white py-3.5 rounded-xl font-bold">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
